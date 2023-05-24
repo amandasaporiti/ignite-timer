@@ -1,6 +1,6 @@
-import { ActionTypes } from "./actions"
+import { ActionTypes } from './actions'
 
-import { produce } from "immer"
+import { produce } from 'immer'
 
 export interface Cycle {
   id: string
@@ -23,24 +23,8 @@ export const cyclesReducer = (state: CycleState, action: any) => {
         draft.cycles.push(action.payload.newCycle)
         draft.activeCycleId = action.payload.newCycle.id
       })
-    // ...state,
-    // // pega tudo do estado e adiciona o newCycle no final do estado
-    // cycles: [...state.cycles, action.payload.newCycle],
-    // activeCycleId: action.payload.newCycle.id,
 
     case ActionTypes.INTERRUPT_CURRENT_CYCLE: {
-      // return {
-      //   ...state,
-      //   cycles: state.cycles.map((cycle) => {
-      //     if (cycle.id === state.activeCycleId) {
-      //       return { ...cycle, interruptedDate: new Date() }
-      //     } else {
-      //       return cycle
-      //     }
-      //   }),
-      //   activeCycleId: null,
-      // }
-
       const currentCycleId = state.cycles.findIndex((cycle) => {
         return cycle.id === state.activeCycleId
       })
@@ -55,17 +39,6 @@ export const cyclesReducer = (state: CycleState, action: any) => {
       })
     }
     case ActionTypes.MARK_CURRENT_CYCLE_AS_FINISHED:
-      // return {
-      //   ...state,
-      //   cycles: state.cycles.map((cycle) => {
-      //     if (cycle.id === state.activeCycleId) {
-      //       return { ...cycle, finishedDate: new Date() }
-      //     } else {
-      //       return cycle
-      //     }
-      //   }),
-      //   activeCycleId: null,
-      // }
       const currentCycleId = state.cycles.findIndex((cycle) => {
         return cycle.id === state.activeCycleId
       })

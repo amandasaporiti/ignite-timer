@@ -1,18 +1,18 @@
-import { differenceInSeconds } from "date-fns"
+import { differenceInSeconds } from 'date-fns'
 import {
   createContext,
   ReactNode,
   useEffect,
   useReducer,
   useState,
-} from "react"
+} from 'react'
 import {
   addNewCycleAction,
   interruptCurrentCycleAction,
   markCurrentCycleAsFinishedAction,
-} from "../reducers/cycles/actions"
+} from '../reducers/cycles/actions'
 
-import { Cycle, cyclesReducer } from "../reducers/cycles/reducer"
+import { Cycle, cyclesReducer } from '../reducers/cycles/reducer'
 
 interface CreateCycleData {
   task: string
@@ -47,13 +47,13 @@ export const CyclesContextProvider = ({
     },
     () => {
       const storedStateJson = localStorage.getItem(
-        "@ignite-timer:cycles-state-1.0.0"
+        '@ignite-timer:cycles-state-1.0.0',
       )
 
       if (storedStateJson) {
         return JSON.parse(storedStateJson)
       }
-    }
+    },
   )
 
   const { cycles, activeCycleId } = cyclesState
@@ -71,7 +71,7 @@ export const CyclesContextProvider = ({
   useEffect(() => {
     const stateJson = JSON.stringify(cyclesState)
 
-    localStorage.setItem("@ignite-timer:cycles-state-1.0.0", stateJson)
+    localStorage.setItem('@ignite-timer:cycles-state-1.0.0', stateJson)
   }, [cyclesState])
 
   const createNewCycle = (data: CreateCycleData) => {
@@ -84,38 +84,14 @@ export const CyclesContextProvider = ({
     }
 
     dispatch(addNewCycleAction(newCycle))
-    // setCycles((state) => [...state, newCycle])
     setAmountSecondsPassed(0)
   }
 
   const interruptCurrentCycle = () => {
     dispatch(interruptCurrentCycleAction())
-
-    // setCycles((state) =>
-    //   state.map((cycle) => {
-    //     if (cycle.id === activeCycleId) {
-    //       // se o ciclo que vou chamar a função for o ciclo ativo ele altera os dados desse ciclo
-    //       return { ...cycle, interruptedDate: new Date() }
-    //     } else {
-    //       return cycle
-    //     }
-    //   })
-    // )
-    // setActiveCycleId(null)
   }
 
   const markCurrentCycleAsFinished = () => {
-    // setCycles((state) =>
-    //   state.map((cycle) => {
-    //     if (cycle.id === activeCycleId) {
-    //       // se o ciclo que vou chamar a função for o ciclo ativo ele altera os dados desse ciclo
-    //       return { ...cycle, finishedDate: new Date() }
-    //     } else {
-    //       return cycle
-    //     }
-    //   })
-    // )
-
     dispatch(markCurrentCycleAsFinishedAction())
   }
 
