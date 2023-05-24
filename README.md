@@ -7,8 +7,7 @@
 <p align="center">
   <a href="#house-sobre-o-projeto">Sobre o projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#computer-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#runner-rodando-o-projeto">Rodando o projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-   <a href="#computer-deploy">Deploy</a>
+  <a href="#runner-rodando-o-projeto">Rodando o projeto</a>
 </p>
 
 <br>
@@ -69,12 +68,6 @@ Execute os seguintes comandos para começar a aplicação em um ambiente de dese
 
 `$ npm run dev`
 `$ yarn dev`
-
-<br>
-
-# :computer: Deploy
-
-[We are ONLINE, try Now](https://dt-money-financas.netlify.app/) :tada:<br>
 
 <br>
 
